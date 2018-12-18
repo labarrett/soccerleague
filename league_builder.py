@@ -1,16 +1,23 @@
 
 import csv
 
+#teams to assign
+yes_players=[]
+
+shark=[]
+dragons=[]
+raptors=[]
 
 #open and file
 with open('soccer_players.csv') as csvfile:
     playerreader=csv.DictReader(csvfile)
     rows=list(playerreader)
-    for row in rows:
-        print(row['Name'],row['Soccer Experience'])
-       
-       
-        
+    player=[]
+    for row in rows:        
+        if row['Soccer Experience']== "YES":
+            yes_players.append(row['Name'])
+#shark.append(player)
+print(yes_players)
        
 #pull out file information
 
@@ -20,4 +27,6 @@ with open('soccer_players.csv') as csvfile:
 #with open("teams.txt", "a") as file:
  #   file.write(LIST NAMES)
 
-
+ #row['Soccer Experience'],
+              #row["Guardian Name(s)"],
+              #row["Height (inches)"]
