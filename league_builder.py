@@ -9,6 +9,7 @@ no_players=[]
 with open('soccer_players.csv') as csvfile:
     playerreader=csv.DictReader(csvfile)
     rows=list(playerreader)
+
     for row in rows:        
         if row['Soccer Experience']== "YES":
             yes_players.append(tuple([row['Name'],row['Soccer Experience'],row["Guardian Name(s)"]]))
@@ -24,24 +25,12 @@ shark=yes_players[:size_needed] + no_players[:no_size_needed]
 dragons=yes_players[size_needed: (size_needed * 2)] + no_players[no_size_needed: (no_size_needed * 2)]
 raptors=yes_players[(size_needed * 2):] + no_players[(no_size_needed * 2):]
 
-def commas():
- print("*" * 25)
-
-if __name__ == "__main__":
-    commas()
-    print("SHARKS:", shark)
-    commas()
-    print("DRAGONS:", dragons)
-    commas()
-    print("RAPTORS:", raptors)
-    commas()
-
-
-    teams = {
+teams = {
         'sharks': shark,
         'raptors': dragons,
         'dragons': raptors
-    }       
+    }
+
 
 def print_line(team):
     output = ""
@@ -50,13 +39,14 @@ def print_line(team):
     return output
 
 
+if __name__ == "__main__":
 #write to team file
-with open("teams.txt", "w") as file:
-    file.write("SHARKS *********\n")
-    file.write(print_line(teams.get('sharks')))
-    file.write("\nRAPTORS *********\n")
-    file.write(print_line(teams.get('raptors')))
-    file.write("\nDRAGONS *********\n")
-    file.write(print_line(teams.get('dragons')))
-    file.close()  
+    with open("teams.txt", "w") as file:
+        file.write("SHARKS *********\n")
+        file.write(print_line(teams.get('sharks')))
+        file.write("\nRAPTORS *********\n")
+        file.write(print_line(teams.get('raptors')))
+        file.write("\nDRAGONS *********\n")
+        file.write(print_line(teams.get('dragons')))
+        file.close()  
 
