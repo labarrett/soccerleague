@@ -4,7 +4,6 @@ import csv
 yes_players=[]
 no_players=[]
 
-
 #open and file
 with open('soccer_players.csv') as csvfile:
     playerreader=csv.DictReader(csvfile)
@@ -49,4 +48,3 @@ if __name__ == "__main__":
         file.write("\nDRAGONS *********\n")
         file.write(print_line(teams.get('dragons')))
         file.close()  
-
